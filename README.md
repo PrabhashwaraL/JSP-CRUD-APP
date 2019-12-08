@@ -1,2 +1,3 @@
 # JSP-CRUD-APP
-CRUD web application in JSP and MySQL
+
+In here I'll build a CRUD user management web application using JSP and MySQL.
