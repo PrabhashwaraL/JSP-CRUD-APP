@@ -16,7 +16,7 @@
 	int i = UserDao.save(u);
 	
 	if( i > 0 ) {
-		response.sendRedirect("success.html");
+		response.sendRedirect("home.html");
 	}
 	else {
 		response.sendRedirect("error.html");
