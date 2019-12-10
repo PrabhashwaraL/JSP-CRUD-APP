@@ -30,7 +30,7 @@ public static Connection getConnection() {
 		
 		try {
 			Connection connection = getConnection();
-			PreparedStatement ps = (PreparedStatement) connection.prepareStatement("insert into USERS_registerForm(Name, Username, Email, User_Password) values(?, ?, ?, ?)");
+			PreparedStatement ps = (PreparedStatement) connection.prepareStatement("insert into jsp_crud_user(Name, Username, Email, User_Password) values(?, ?, ?, ?)");
 			
 			ps.setString(1, u.getName());
 			ps.setString(2, u.getUsername());
