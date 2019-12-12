@@ -2,6 +2,9 @@ package JSP.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
 
@@ -43,6 +46,32 @@ public static Connection getConnection() {
 		}
 		
 		return status;
+	}
+	
+	public static List<User> getAllRecords() {
+		
+		List<User> list = new ArrayList<User>();
+		
+		try {
+			Connection connection = getConnection();
+			PreparedStatement ps = (PreparedStatement) connection.prepareStatement("select * from jsp_crud_user");
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				User u = new User();
+				u.setName(rs.getString("Name"));
+				u.setUsername(rs.getString("Username"));
+				u.setEmail(rs.getString("Email"));
+				
+				list.add(u);
+			}
+			
+		} catch( Exception e ) {
+			System.out.println(e);
+		}
+		
+		return list;
+		
 	}
 	
 }
