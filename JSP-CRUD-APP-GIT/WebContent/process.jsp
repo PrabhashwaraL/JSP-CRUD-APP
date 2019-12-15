@@ -13,10 +13,13 @@
 <body>
 
 <%
+	String uniqueUsername = request.getParameter("username");
+	session.setAttribute("uniqueUser", uniqueUsername);
+	
 	int i = UserDao.save(u);
 	
 	if( i > 0 ) {
-		response.sendRedirect("home.html");
+		response.sendRedirect("home.jsp");
 	}
 	else {
 		response.sendRedirect("error.html");

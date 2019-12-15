@@ -12,7 +12,7 @@ import JSP.bean.User;
 
 public class UserDao {
 
-public static Connection getConnection() {
+	public static Connection getConnection() {
 		
 		Connection connection = null;
 		
@@ -71,6 +71,32 @@ public static Connection getConnection() {
 		}
 		
 		return list;
+		
+	}
+	
+	public static User getRecordByUsername( String username ) {
+		
+		User theUser = null;
+		
+		try {
+			Connection connection = getConnection();
+			PreparedStatement ps = (PreparedStatement) connection.prepareStatement(" SELECT ID, Name, Username, Email FROM `jsp_crud_user` WHERE Username=? ");
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				theUser = new User();
+				theUser.setId(rs.getInt("ID"));
+				theUser.setName(rs.getString("Name"));
+				theUser.setUsername(rs.getString("Username"));
+				theUser.setEmail(rs.getString("Email"));
+			}
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return theUser;
 		
 	}
 	
