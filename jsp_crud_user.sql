@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 06:57 AM
+-- Generation Time: Dec 14, 2019 at 06:27 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -51,7 +51,8 @@ INSERT INTO `jsp_crud_user` (`ID`, `Name`, `Username`, `Email`, `User_Password`)
 -- Indexes for table `jsp_crud_user`
 --
 ALTER TABLE `jsp_crud_user`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Username` (`Username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -61,7 +62,7 @@ ALTER TABLE `jsp_crud_user`
 -- AUTO_INCREMENT for table `jsp_crud_user`
 --
 ALTER TABLE `jsp_crud_user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
