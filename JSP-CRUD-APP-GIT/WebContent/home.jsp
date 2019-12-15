@@ -1,9 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!doctype html>
 <html lang="en">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -19,6 +21,11 @@
 </head>
 
 <body>
+	
+	<%
+		String uniqueUsername = (String)session.getAttribute("uniqueUser");
+		System.out.println(uniqueUsername);
+	%>
 
     <div class="container-fluid">
         <div class="row mt-3 pb-2 border-bottom border-success">
@@ -45,8 +52,8 @@
                     </li>
                 </ul> -->
                 <div class="list-group mt-3">
-                    <a href="#" class="list-group-item list-group-item-action active disabled">Home</a>
-                    <a href="#" class="list-group-item list-group-item-action">Update profile</a>
+                    <a href="home.jsp" class="list-group-item list-group-item-action active disabled">Home</a>
+                    <a href="update-info.jsp?username=<%=(String)session.getAttribute("uniqueUser")%>" class="list-group-item list-group-item-action">Update profile</a>
                     <a href="view-users.jsp" class="list-group-item list-group-item-action">Show all users</a>
                 </div>
             </div>
@@ -90,4 +97,4 @@
     </script>
 </body>
 
-</html>
+</html>>
