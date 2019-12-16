@@ -53,7 +53,7 @@
             <div class="col-md-10">
                 <div class="row m-3">
                     <div class="container">
-                        <form action="#">
+                        <form action="update-process.jsp">
                         	<input type="hidden" name="id" value="<%=theUser.getId() %>">
                             <div class="form-group row">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
