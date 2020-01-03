@@ -80,15 +80,14 @@ public class UserDao {
 		
 		try {
 			Connection connection = getConnection();
-			PreparedStatement ps = (PreparedStatement) connection.prepareStatement(" SELECT ID, Name, Username, Email FROM `jsp_crud_user` WHERE Username=? ");
+			PreparedStatement ps = (PreparedStatement) connection.prepareStatement(" SELECT Name, Username, Email FROM jsp_crud_user WHERE Username=? ");
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				theUser = new User();
-				theUser.setId(rs.getInt("ID"));
 				theUser.setName(rs.getString("Name"));
-				theUser.setUsername(rs.getString("Username"));
+				theUser.setUsername(username);
 				theUser.setEmail(rs.getString("Email"));
 			}
 		}
@@ -98,6 +97,26 @@ public class UserDao {
 		
 		return theUser;
 		
+	}
+	
+	public static int update(User user) {
+		int status = 0;
+		
+		try {
+			Connection connection = getConnection();
+			PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement("update jsp_crud_user set Name=?, Email=?, User_Password=? where Username=?");
+			preparedStatement.setString(1, user.getName());
+			preparedStatement.setString(2, user.getEmail());
+			preparedStatement.setString(3, user.getPassword());
+			preparedStatement.setString(4, user.getUsername());
+			
+			status = preparedStatement.executeUpdate();
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		
+		return status;
 	}
 	
 }

@@ -13,7 +13,8 @@
 <body>
 
 <%
-	int i;
+	int i = UserDao.update(theUser);
+	response.sendRedirect("view-users.jsp");
 %>
 
 </body>

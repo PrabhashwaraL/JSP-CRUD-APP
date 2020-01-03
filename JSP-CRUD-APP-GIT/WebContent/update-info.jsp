@@ -54,7 +54,6 @@
                 <div class="row m-3">
                     <div class="container">
                         <form action="update-process.jsp">
-                        	<input type="hidden" name="id" value="<%=theUser.getId() %>">
                             <div class="form-group row">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
@@ -64,7 +63,7 @@
                             <div class="form-group row">
                                 <label for="name" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="username" value="<%= theUser.getUsername() %>" required="required">
+                                    <input type="text" class="form-control" name="username" value="<%= theUser.getUsername() %>" required="required" readonly>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -81,7 +80,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-success float-right">Update</button>
+                                    <button type="submit" class="btn btn-success float-right" onclick="disableBtn()">Update</button>
                                 </div>
                             </div>
                         </form>
@@ -102,6 +101,7 @@
     </div>
 
     <!-- Optional JavaScript -->
+    <script src="js/script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">

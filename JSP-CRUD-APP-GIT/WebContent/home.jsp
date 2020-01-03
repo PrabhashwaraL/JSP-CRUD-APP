@@ -53,7 +53,7 @@
                 </ul> -->
                 <div class="list-group mt-3">
                     <a href="home.jsp" class="list-group-item list-group-item-action active disabled">Home</a>
-                    <a href="update-info.jsp?username=<%=(String)session.getAttribute("uniqueUser")%>" class="list-group-item list-group-item-action">Update profile</a>
+                    <a href="update-info.jsp" class="list-group-item list-group-item-action" id="update">Update profile</a>
                     <a href="view-users.jsp" class="list-group-item list-group-item-action">Show all users</a>
                 </div>
             </div>
